@@ -1,0 +1,215 @@
+---
+title: "**Weather Effects on Ozone Pollution and Air Quality**"  
+author: "Tanya Deniz Toluay"
+date: "14.05.2020"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+bibliography: /bibib.bibtex
+link-citation: yes
+---
+
+# <span style="color: #002147;">**Air Pollution**</span>  
+
+
+Air pollution occurs when harmful or excessive quantities of substances are introduced into the Earth's atmosphere. Sources of air pollution include gases (such as ammonia, carbon monoxide, sulfur dioxide, nitrous oxides, methane and chlorofluorocarbons), particulates (both organic and inorganic), and biological molecules. It may cause diseases, allergies and even death to humans; it may also cause harm to other living organisms such as animals and food crops, and may damage the natural or built environment. Both human activity and natural processes can generate air pollution.
+
+From smog hanging over cities to smoke inside the home, air pollution poses a major threat to health and climate. The combined effects of ambient (outdoor) and household air pollution cause about seven million premature deaths every year, largely as a result of increased mortality from stroke, heart disease, chronic obstructive pulmonary disease, lung cancer and acute respiratory infections. More than 80% of people living in urban areas that monitor air pollution are exposed to air quality levels that exceed WHO guideline limits, with low- and middle-income countries suffering from the highest exposures, both indoors and outdoors.[1]
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# <span style="color: #002147;">**Air Quality Index**</span>  
+
+Air quality index is a good way to measure pollution in the air. It is often used by government agencies to communicate to the public how polluted the air currently is or how polluted it is forecast to become. The data is collected and the calculations are made every day.  Computation of the AQI requires an air pollutant concentration over a specified averaging period, obtained from an air monitor or model. Taken together, concentration and time represent the dose of the air pollutant. Health effects corresponding to a given dose are established by epidemiological research. Air pollutants vary in potency, and the function used to convert from air pollutant concentration to AQI varies by pollutant. Its air quality index values are typically grouped into ranges. Each range is assigned a descriptor, a colour code, and a standardized public health advisory.
+The AQI can increase due to an increase of air emissions (for example, during rush hour traffic or when there is an upwind forest fire) or from a lack of dilution of air pollutants. Stagnant air, often caused by an anticyclone, temperature inversion, or low wind speeds lets air pollution remain in a local area, leading to high concentrations of pollutants, chemical reactions between air contaminants and hazy conditions.
+Based on the results of calculations public must follow certain rules in the times of poor air quality for their health benefit such as,
+
++ advise sensitive groups, such as the elderly, children, and those with respiratory or cardiovascular problems, to avoid outdoor exertion.
++ declare an "action day" to encourage voluntary measures to reduce air emissions, such as using public transportation.
++ recommend the use of masks to keep fine particles from entering the lungs.
+
+During a period of very poor air quality, such as an air pollution episode, when the AQI indicates that acute exposure may cause significant harm to the public health, agencies may invoke emergency plans that allow them to order major emitters (such as coal-burning industries) to curtail emissions until the hazardous conditions abate.
+Most air contaminants do not have an associated AQI. Many countries monitor ground-level ozone, particulates, sulfur dioxide, carbon monoxide and nitrogen dioxide, and calculate air quality indices for these pollutants.
+The definition of the AQI in a particular nation reflects the discourse surrounding the development of national air quality standards in that nation. Air quality index is calculated by given formula:
+
+
+$$I = \frac{I_{high} - I_{low}}{C_{high} - C_{low}} (C - C_{low}) + I_{low}   $$
+
+
+
+
+
+:::: {.columns style="display: flex;"}
+
+::: {.column width="50%"}
+
+$I$: the air quality index
+
+$I_{high}$: the index point corresponding to $C_{high}$
+
+$I_{low}$: the index breakpoint corresponding to $C_{low}$
+
+:::
+
+:::{.column width="50%"}
+
+$C$: the pollutant concentration
+
+$C_{high}$: the concentration breakpoint that is ≥ C
+
+$C_{low}$: the concentration breakpoint that is ≤ C
+
+:::
+
+::::
+
+
+
+R has a data set which includes daily air quality measurements in New York from May to September 1973 over 5 months. To demonstrate the connection between Ozone and weather effects on air quality, this data set will be used in the graphs. 
+
+
+
+
+```{r airquality, echo=FALSE}
+knitr::kable(summary(airquality), caption = "**Air Quality Data From USA**")
+```
+
+
+
+## <span style="color: #666666;">**Air Quality in Europe: The Air We Breath**</span>  
+
+The European Union (EU) aims to protect, conserve, and enhance its natural capital; turn itself into a resource-efficient, green, and competitive low-carbon economy; and safeguard the EU’s citizens from environment-related pressures and risks to health and wellbeing by 2020. In furtherance of these goals, it has introduced a variety of legislative measures to fight air pollution and improve air quality. The EU itself and its Member States have ratified the relevant international agreements on the topic. These international commitments were enacted into EU legislation. The legislation sets ambient air quality limits and target values for air quality implement emission mitigation controls, sets caps on Member States’ total annual emissions of certain pollutants, sets vehicle emission standards to reduce greenhouse gas (GHG) emissions from transport, sets fuel quality standards, encourages the use of renewable fuels, establishes an emission trading scheme (ETS), sets annual national GHG emission limits for sectors not covered by the ETS, and limits industrial pollution, among other measures.
+The [data](https://airindex.eea.europa.eu/) is available for everyone. The dots colour is based on the index level while grey dots mean that there was no data, since they are not in the EU. In order to see the data about other places in the world, you can check the website [iqair](https://www.iqair.com/). 
+
+
+
+![](1.png)
+
+![](2.png)
+
+
+
+# <span style="color: #002147;">**Understanding Ozone**</span>  
+
+## <span style="color: #666666;">**The Good Kind of Ozone**</span>  
+
+The stratosphere is the layer of the atmosphere from 10 to 30 miles above sea level. When there's ozone in this layer, it protects us from solar radiation. The ozone 'hole' over Antarctica. Regular oxygen molecules, known to science-types as O2, are made up of two oxygen atoms stuck together. Solar energy shoots in from space and splits that molecule into two atoms. When one of those stray atoms attaches to a full-fledged molecule, otherwise known as ozone. All that action blocks solar radiation, and keeps it from reaching us. Solar radiation can be harmful to life on Earth, part of that radiation is ultra-violet, or UV radiation. It's an intense energy from the Sun that can cause a whole lot of damage. Skin cancer is the most dramatic result of too much UV radiation, but there's a lot more too. Photosynthesis in plants is also affected, and that causes problems for the whole food chain. We need to protect our ozone shield, and we can do so by decreasing the pollution that our industrial society puts out in large amounts every day.[2]
+
+
+## <span style="color: #666666;">**The Bad Kind of Ozone**</span>  
+
+Let's come down a little closer to Earth. The troposphere is everything below the stratosphere, from sea level to about 10 miles above. It's where everything lives. Things that happen to the troposphere happen to us; there's nothing indirect about it. Put a little ozone in the troposphere and you've got some big problems. Remember those dramatic chemical reactions that happened up in the stratosphere? Living things are made of atoms and molecules too, so when we expose them to ozone, we've got some serious chemical reactions on our hands. In humans, it means lung damage. Small children and people with asthma are especially at risk. Cars, trucks and SUVs are the biggest contributor to this ozone buildup. Engine exhaust creates nitrogen dioxide, so the more you drive, the more your vehicle creates. High gas prices aren't the only reason to leave the car in the garage.[2]
+
+
+
+
+
+
+
+
+# <span style="color: #002147;">**Weather**</span>  
+
+
+To a certain extent nature's air conditioning can keep the air clean. Wind mixes the gases and dilutes them, rain washes the dust and other substances to the ground, and plants absorb the carbon dioxide and replace it with oxygen. Air pollution arises when nature can no longer maintain the levels of certain substances below safe limits and they start having negative impacts. ***Generally, because we can not see, taste or smell the air, we ignore it and take it for granted. We become concerned only when its quality is reduced but by then, the efforts required to fix the problem are often complex and expensive.*** The extent to which pollutants are emitted in a given area can impact on air quality elsewhere depends on a number of factors:
+
++ topography - which means the form of the land - e.g. mountains, valleys, rivers and plains
++ meteorology
++ the chemical and physical properties of pollutants.
+
+Simply measuring air pollution alone does not tell us very much. To obtain an understanding of why air quality can vary from day to day, we must measure meteorological conditions as well, such things as:
+
++ wind
++ temperature
++ rainfall
++ cloud cover
++ air pressure conditions
+
+
+Aspects of weather are very important as they have a significant effect on the concentration of air pollution that builds up in the air in a region. For example: at a place which is built in a valley, pollution can build up on very still days. Areas such as this are called "airsheds". At other times, fresh winds will clear away the pollution and the concentrations will be very low. In the case of some pollutants, the airshed may extend relatively large distances from the city centre. These include gases such as ozone that are formed by chemical reactions in the atmosphere, they are called "secondary pollutants". However, a primary pollutant such as wood smoke in winter, is often more localised and perhaps confined to areas sharing common night time air flows. The build-up of pollution in an airshed depends on many factors. For example, if there is a circulation of polluted air through the airshed over several days, levels of pollutants such as ozone may build up to very high levels and can be seen as smog.[3]
+
+
+
+
+
+# <span style="color: #002147;">**Connection by Graphs**</span>  
+
+
+
+```{r echo=FALSE}
+library(ggplot2)
+
+airquality$Month <- factor(airquality$Month)
+
+
+airquality <- airquality[complete.cases(airquality), ]
+
+ggplot(airquality,
+        aes(Ozone, Temp)) + 
+        geom_point( color = "steelblue", size = 3, alpha = 0.5) + 
+        facet_grid(. ~ Month) +
+        geom_smooth(method = "lm", formula = 'y ~ x')
+```
+
+
+
+
+
+To see the weather effect on ozone, we can look at the graphs. The first graph is ozone~temperature line graph split into the months. On the x-axis, we have information about the ozone levels and on the y-axis, we have information about the temperature provided in Fahrenheit. Line charts are very useful to see the changes during time, so our data is shown very well. We can see the progression for both temperature and ozone levels. And, from the graph, it is clearly shown that for each month, in higher temperatures also ozone level goes up. The last two months which are August and September are the peek points for both temperature and ozone.  
+
+
+
+
+```{r echo=FALSE, warning=FALSE}
+library(ggplot2)
+
+airquality$Month <- factor(airquality$Month,labels = c("May", "Jun", "Jul", "Aug", "Sep"))   
+
+airquality_trimmed <- airquality[which(airquality$Month == "Jul" |  
+                                       airquality$Month == "Aug" |                                       
+                                       airquality$Month == "Sep"), ]
+                                     
+airquality_trimmed$Temp.f <- factor(ifelse(airquality_trimmed$Temp > mean(airquality_trimmed$Temp), 
+                                                                     1,0), labels = c("Low temp", "High temp"))
+
+
+fill <- "#50ccaa"
+
+lineBox <- "#3c7370"
+
+
+ggplot(airquality_trimmed, aes(x = Month, y = Ozone)) +
+        geom_boxplot(fill = fill, colour = lineBox,                 
+                     alpha = 0.7) +
+        scale_y_continuous(name = "Mean ozone in\nparts per billion",
+                           breaks = seq(0, 175, 50),
+                           limits=c(0, 175)) +
+        scale_x_discrete(name = "Month") +
+        ggtitle("Boxplot of mean ozone by month") +
+        theme_bw() +
+        theme(plot.title = element_text(size = 14, face = "bold"),  
+              axis.title = element_text(face="bold"),
+              axis.text.x=element_text(size = 11)) +
+        facet_grid(. ~ Temp.f)   
+```
+
+
+
+
+The second graph is again an ozone~temperature box-plot graph but this time I have made that it is summer so that we capture the hottest months which are July, August and September. On the x-axis, we have information about mean ozone and on the y-axis, we have months written. The reason for the box-plot graph is you can easily spot median, minimum and maximum values, interquartile range and outliers. 
+This graph will help us to see even in the same month, the ozone pollution can differ in the same place due to the temperature. When there is low temperature, no matter the month is, that indicates we will have also lower ozone pollution. Also, it applies to the opposite, when there is a high temperature, it indicates that we will have higher ozone pollution. 
+ We can see two important and very distant outliers in the box-plot for low-temperature August, a maximum value and in the high-temperature July. The reason for these outliers is most likely not the temperature but some other effect, for example, having no wind at all, or having high numbers of travelling for holidays for summer.
+
+
+
+# <span style="color: #002147;">**References**</span>  
+
+Total `r 2 + 1 ` references found.
+
+[@Whopollutionreport]
+[@TheGoodtheBadandtheOzone]
+[@kyrkilis2007development]
+
+
