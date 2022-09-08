@@ -6,7 +6,6 @@ output:
   html_document: 
     toc: yes
     toc_float: yes
-bibliography: /bibib.bibtex
 link-citation: yes
 ---
 
@@ -83,13 +82,6 @@ knitr::kable(summary(airquality), caption = "**Air Quality Data From USA**")
 
 The European Union (EU) aims to protect, conserve, and enhance its natural capital; turn itself into a resource-efficient, green, and competitive low-carbon economy; and safeguard the EU’s citizens from environment-related pressures and risks to health and wellbeing by 2020. In furtherance of these goals, it has introduced a variety of legislative measures to fight air pollution and improve air quality. The EU itself and its Member States have ratified the relevant international agreements on the topic. These international commitments were enacted into EU legislation. The legislation sets ambient air quality limits and target values for air quality implement emission mitigation controls, sets caps on Member States’ total annual emissions of certain pollutants, sets vehicle emission standards to reduce greenhouse gas (GHG) emissions from transport, sets fuel quality standards, encourages the use of renewable fuels, establishes an emission trading scheme (ETS), sets annual national GHG emission limits for sectors not covered by the ETS, and limits industrial pollution, among other measures.
 The [data](https://airindex.eea.europa.eu/) is available for everyone. The dots colour is based on the index level while grey dots mean that there was no data, since they are not in the EU. In order to see the data about other places in the world, you can check the website [iqair](https://www.iqair.com/). 
-
-
-
-![](1.png)
-
-![](2.png)
-
 
 
 # <span style="color: #002147;">**Understanding Ozone**</span>  
@@ -201,15 +193,5 @@ ggplot(airquality_trimmed, aes(x = Month, y = Ozone)) +
 The second graph is again an ozone~temperature box-plot graph but this time I have made that it is summer so that we capture the hottest months which are July, August and September. On the x-axis, we have information about mean ozone and on the y-axis, we have months written. The reason for the box-plot graph is you can easily spot median, minimum and maximum values, interquartile range and outliers. 
 This graph will help us to see even in the same month, the ozone pollution can differ in the same place due to the temperature. When there is low temperature, no matter the month is, that indicates we will have also lower ozone pollution. Also, it applies to the opposite, when there is a high temperature, it indicates that we will have higher ozone pollution. 
  We can see two important and very distant outliers in the box-plot for low-temperature August, a maximum value and in the high-temperature July. The reason for these outliers is most likely not the temperature but some other effect, for example, having no wind at all, or having high numbers of travelling for holidays for summer.
-
-
-
-# <span style="color: #002147;">**References**</span>  
-
-Total `r 2 + 1 ` references found.
-
-[@Whopollutionreport]
-[@TheGoodtheBadandtheOzone]
-[@kyrkilis2007development]
 
 
